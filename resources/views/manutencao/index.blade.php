@@ -249,7 +249,7 @@
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <p><span style="color: green">Operacional: {{count(\App\Models\Equipment::where('mobilized',1)->get())}}</span> </p>
+                                            <p><span style="color: green">Operacionais: {{count(\App\Models\Equipment::where('mobilized',1)->get())}}</span> </p>
                                             <p><span style="color: red">Imobilizados: {{count(\App\Models\Equipment::where('mobilized',2)->get())}}</span> </p>
                                         </div>
                                     </div>
