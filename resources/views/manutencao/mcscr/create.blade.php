@@ -55,6 +55,14 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
+                                <label class="form-label" for="inputEmail4">Previsão de saída:</label>
+                                <input type="datetime-local" class="form-control" name="output_forecast" id="output_forecast" placeholder="Abertura" required> 
+                            </div>
+                            
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
                                 <label class="form-label" for="inputEmail4">Tipo de Equipamento</label>
                                 <select type="text" class="form-control" id="type-equipment-dropdown" placeholder="Tipo de equipamento" required value="{{ old('type') }}">
                                     <option value="">Selecione o tipo de Equipamento</option>

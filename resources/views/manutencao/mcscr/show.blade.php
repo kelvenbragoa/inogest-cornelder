@@ -18,7 +18,7 @@
                     <p><strong>Recomendação</strong> : {{$mcscr->recomendacao}}</p>
                     <p><strong>Motivo Longa Paralização</strong> : {{$mcscr->obs}}</p>
                     <p><strong>Estado</strong> : @if ($mcscr->status == 0) <span class="badge bg-danger">Em execução</span> @endif @if ($mcscr->status == 1) <span class="badge bg-success">Terminado</span> @endif @if ($mcscr->status == 2) <span class="badge bg-warning">Aguarda Aprovação</span> @endif</p>
-                    
+                    <p>Previsão de saída: @if ($mcscr->output_forecast != '') {{date('d-m-Y H:i:s',strtotime($mcscr->output_forecast))}} @endif </p>
                     <hr>
 
                     <h5 class="card-title">Informações do Equipamento</h5>

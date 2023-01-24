@@ -124,7 +124,7 @@ Route::group(['middleware'=>['auth','operador']], function(){
 });
 
 Route::group(['middleware'=>['auth','manutencao']], function(){
-
+    Route::resource('report', 'App\Http\Controllers\Manutencao\ReportsController');
     Route::resource('equipment', 'App\Http\Controllers\Manutencao\EquipmentController');
     Route::resource('type_equipment', 'App\Http\Controllers\Manutencao\TypeEquipmentController');
     Route::resource('equipmentrequest', 'App\Http\Controllers\Manutencao\EquipmentRequestController');

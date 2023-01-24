@@ -121,6 +121,16 @@
                             
                         </div>
 
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="inputEmail4">Previsão de saída:</label>
+                                <input type="datetime-local" class="form-control" name="output_forecast" @if ($mcscr->output_forecast != '') value="{{  date('Y-m-d\TH:i', strtotime($mcscr->output_forecast))}}" @endif id="output_forecast" placeholder="Previsão de saída" required> 
+                            </div>
+                            
+                        </div>
+
+
+
 
                         <div class="row">
                             <div class="mb-3 col-md-6">

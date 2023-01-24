@@ -41,14 +41,14 @@
                                 <tr>
                                     {{-- <td>{{$item->id}}</td> --}}
                                     <td>{{$item->name}}</td>
-                                    <td>{{count($item->equipment)}}</td>
-                                    @if (count($item->equipment) == 0)
+                                    <td>{{count($item->equipment->where('mobilized',1))}}</td>
+                                    @if (count($item->equipment->where('mobilized',1)) == 0)
                                     <td>0%</td>
                                     @else
-                                    <td>{{round(count($item->equipment->where('status',1))*100/count($item->equipment),2)}} %</td>
+                                    <td>{{round(count($item->equipment->where('status',1)->where('mobilized',1))*100/count($item->equipment),2)}} %</td>
                                     @endif
-                                    <td style="color: green">{{count($item->equipment->where('status',1))}}</td>
-                                    <td style="color: red">{{count($item->equipment->where('status',0))}}</td>
+                                    <td style="color: green">{{count($item->equipment->where('status',1)->where('mobilized',1))}}</td>
+                                    <td style="color: red">{{count($item->equipment->where('status',0)->where('mobilized',1))}}</td>
 
                                     <td class="table-action">
                                         <a href="{{URL::to('/destination/'.$item->id.'/edit')}}"><i class="align-middle" data-feather="edit-2"></i></a>

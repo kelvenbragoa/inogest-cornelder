@@ -26,13 +26,14 @@ class CreateMcscrsTable extends Migration
             $table->bigInteger('user_id');
             $table->bigInteger('status');
             $table->bigInteger('equipment_id');
-            $table->unsignedBigInteger('destination_id');
-            $table->unsignedBigInteger('area_id');
+            $table->unsignedBigInteger('destination_id')->nullable();
+            $table->unsignedBigInteger('area_id')->nullable();
             $table->unsignedBigInteger('waiting_id')->nullable();
-            $table->timestamp('open_at');
+            $table->timestamp('open_at')->nullable();
             $table->timestamp('close_at')->nullable();
-            $table->timestamp('open_at_man');
+            $table->timestamp('open_at_man')->nullable();
             $table->timestamp('close_at_man')->nullable();
+            $table->timestamp('output_forecast')->nullable();
             $table->timestamps();
         });
     }

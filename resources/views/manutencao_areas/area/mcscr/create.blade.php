@@ -37,18 +37,20 @@
                             
                         </div>
 
+                        
+
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="inputEmail4">Aberto as:</label>
-                                <input type="text" class="form-control" name="model" id="model" placeholder="Modelo"  value="{{date('d-m-Y H:i:s') }}" readonly> 
+                                <input type="datetime-local" class="form-control" name="open_at_man" id="open_at_man" placeholder="Abertura" required> 
                             </div>
                             
                         </div>
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
-                                <label class="form-label" for="inputEmail4">Aberto as:</label>
-                                <input type="datetime-local" class="form-control" name="open_at_man" id="open_at_man" placeholder="Abertura" required> 
+                                <label class="form-label" for="inputEmail4">Previsão de saída:</label>
+                                <input type="datetime-local" class="form-control" name="output_forecast" id="output_forecast" placeholder="Abertura" required> 
                             </div>
                             
                         </div>

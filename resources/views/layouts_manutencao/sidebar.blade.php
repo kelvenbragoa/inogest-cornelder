@@ -55,6 +55,12 @@
                 </a>
             </li> 
 
+             <li class="sidebar-item">
+                <a class="sidebar-link" href="{{route('report.index')}}">
+                <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Relatórios</span>
+                </a>
+            </li>  
+
             <li class="sidebar-header">
                 {{__('text.operation')}}
             </li>

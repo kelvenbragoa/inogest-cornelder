@@ -28,7 +28,7 @@
                         <thead>
                             <tr>
                                 {{-- <th style="width:10%;">{{__('text.id')}}</th> --}}
-                                <th style="width:20%">Nome</th>
+                                <th style="width:10%">Nome</th>
                                 <th style="width:10%">Destino</th>
                                 <th style="width:10%">Modelo</th>
                                 <th style="width:10%">Marca</th>
@@ -36,6 +36,7 @@
                                 <th style="width:10%">Serial</th>
                                 <th style="width:10%">Chassis</th>
                                 <th style="width:5%">Ano</th>
+                                <th style="width:10%">Mobilizado</th>
                                 <th style="width:10%">Estado</th>
                                 <th>{{__('text.action')}}</th>
                             </tr>
@@ -52,6 +53,7 @@
                                     <td>{{$item->serial}}</td>
                                     <td>{{$item->chassis}}</td>
                                     <td>{{$item->year}}</td>
+                                    <td>@if ($item->mobilized == 1) <span class="badge bg-success">Operacional</span> @else <span class="badge bg-danger">Imobilizado</span> @endif</td>
                                     <td>@if ($item->status == 1) <span class="badge bg-success">Disponível</span> @else <span class="badge bg-danger">Indisponível</span> @endif</td>
                                     <td class="table-action">
                                         <a href="{{URL::to('/equipment/'.$item->id.'/edit')}}"><i class="align-middle" data-feather="edit-2"></i></a>

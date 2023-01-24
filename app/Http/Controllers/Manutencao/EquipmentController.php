@@ -108,6 +108,7 @@ class EquipmentController extends Controller
             }
 
             foreach($mcscr_y as $item){
+                
                 $created_at = strtotime($item->open_at_man);
                 $closed_at = strtotime($item->close_at_man);
                 $time = $closed_at - $created_at;

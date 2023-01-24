@@ -25,6 +25,7 @@
                     <p>Ano : {{$equipment->year}}</p>
                     <p>Serial : {{$equipment->serial}}</p>
                     <p>Chassis : {{$equipment->chassis}}</p>
+                    <p>Mobilizado : @if($equipment->status == 1) <span class="badge bg-success">Operacional</span> @else <span class="badge bg-danger">Imobilizado</span> @endif</p>
                     <p>Estado : @if($equipment->status == 1) <span class="badge bg-success">Disponível</span> @else <span class="badge bg-danger">Indisponível</span> @endif</p>
                     
                     <hr>

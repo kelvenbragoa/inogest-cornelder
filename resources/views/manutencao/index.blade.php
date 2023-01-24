@@ -57,11 +57,11 @@
                                 @if (count($item->equipment) == 0)
                                     <td>0%</td>
                                 @else
-                                <td>{{round(count($item->equipment->where('status',1))*100/count($item->equipment),2)}} %</td>
+                                <td>{{round(count($item->equipment->where('status',1)->where('mobilized',1))*100/count($item->equipment),2)}} %</td>
                                 @endif
                                 
-                                <td style="color: green">{{count($item->equipment->where('status',1))}}</td>
-                                <td style="color: red">{{count($item->equipment->where('status',0))}}</td>
+                                <td style="color: green">{{count($item->equipment->where('status',1)->where('mobilized',1))}}</td>
+                                <td style="color: red">{{count($item->equipment->where('status',0)->where('mobilized',1))}}</td>
 
                                 <td class="table-action">
                                     
@@ -243,7 +243,7 @@
                                     <h5 class="card-title mb-4">Total Equipamentos</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="mt-1 mb-3">{{count(\App\Models\Equipment::all())}}</h1>
+                                            <h1 class="mt-1 mb-3">{{count(\App\Models\Equipment::where('mobilized',1)->get())}}</h1>
                                             <div class="mb-1">
                                                 <a href="{{route('equipment.index')}}"><i class="align-middle" data-feather="eye"></i>Ver</a>
                                             </div>
@@ -262,7 +262,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title mb-4">Total Equipamentos Disponíveis</h5>
-                                    <h1 class="mt-1 mb-3">{{count(\App\Models\Equipment::where('status',1)->get())}}</h1>
+                                    <h1 class="mt-1 mb-3">{{count(\App\Models\Equipment::where('status',1)->where('mobilized',1)->get())}}</h1>
                                     <div class="mb-1">
                                         <a href="{{route('equipment.index')}}"><i class="align-middle" data-feather="eye"></i>Ver</a>
                                     </div>
@@ -273,7 +273,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title mb-4">Total Equipamentos indisponíveis</h5>
-                                    <h1 class="mt-1 mb-3">{{count(\App\Models\Equipment::where('status',0)->get())}}</h1>
+                                    <h1 class="mt-1 mb-3">{{count(\App\Models\Equipment::where('status',0)->where('mobilized',1)->get())}}</h1>
                                     <div class="mb-1">
                                         <a href="{{route('equipment.index')}}"><i class="align-middle" data-feather="eye"></i>Ver</a>
                                     </div>
@@ -286,7 +286,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title mb-4">Percentagem global disponibilidade</h5>
-                                    <h1 class="mt-1 mb-3"> {{round(count(\App\Models\Equipment::where('status',1)->get())*100/count(\App\Models\Equipment::all()),2)  }} % </h1>
+                                    <h1 class="mt-1 mb-3"> {{round(count(\App\Models\Equipment::where('status',1)->where('mobilized',1)->get())*100/count(\App\Models\Equipment::where('mobilized',1)->get()),2)  }} % </h1>
                                     <div class="mb-1">
                                        
                                     </div>
@@ -321,13 +321,13 @@
                                 <h3 class="mb-4">{{$item->name}}</h5>
                                 <div class="row">
                                     <div class="col">
-                                        <h1 class="mt-1 mb-3" style="color: green">{{count(\App\Models\Equipment::where('status',1)->where('destination_id',$item->id)->get())}}</h1>
+                                        <h1 class="mt-1 mb-3" style="color: green">{{count(\App\Models\Equipment::where('status',1)->where('mobilized',1)->where('destination_id',$item->id)->get())}}</h1>
                                         <div class="mb-1">
-                                          Total Equipamentos: {{count(\App\Models\Equipment::where('destination_id',$item->id)->get())}} <a href="{{URL::to('/availability/'.$item->id)}}"><i class="align-middle" data-feather="eye"></i>Ver</a>
+                                          Total Equipamentos: {{count(\App\Models\Equipment::where('destination_id',$item->id)->where('mobilized',1)->get())}} <a href="{{URL::to('/availability/'.$item->id)}}"><i class="align-middle" data-feather="eye"></i>Ver</a>
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <h1 class="mt-1 mb-3" style="color: red">{{count(\App\Models\Equipment::where('status',0)->where('destination_id',$item->id)->get())}}</h1>
+                                        <h1 class="mt-1 mb-3" style="color: red">{{count(\App\Models\Equipment::where('status',0)->where('mobilized',1)->where('destination_id',$item->id)->get())}}</h1>
                                         <div class="mb-1">
                                           
                                         </div>
@@ -368,13 +368,13 @@
                                     <h3 class="mb-4">{{$item->name}}</h5>
                                     <div class="row">
                                         <div class="col">
-                                            <h1 class="mt-1 mb-3" style="color: green">{{count(\App\Models\Equipment::where('status',1)->where('area_id',$item->id)->get())}}</h1>
+                                            <h1 class="mt-1 mb-3" style="color: green">{{count(\App\Models\Equipment::where('status',1)->where('mobilized',1)->where('area_id',$item->id)->get())}}</h1>
                                             <div class="mb-1">
-                                            Total Equipamentos: {{count(\App\Models\Equipment::where('area_id',$item->id)->get())}} <a href="{{URL::to('/availabilityarea/'.$item->id)}}"><i class="align-middle" data-feather="eye"></i>Ver</a>
+                                            Total Equipamentos: {{count(\App\Models\Equipment::where('area_id',$item->id)->where('mobilized',1)->get())}} <a href="{{URL::to('/availabilityarea/'.$item->id)}}"><i class="align-middle" data-feather="eye"></i>Ver</a>
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <h1 class="mt-1 mb-3" style="color: red">{{count(\App\Models\Equipment::where('status',0)->where('area_id',$item->id)->get())}}</h1>
+                                            <h1 class="mt-1 mb-3" style="color: red">{{count(\App\Models\Equipment::where('status',0)->where('mobilized',1)->where('area_id',$item->id)->get())}}</h1>
                                             <div class="mb-1">
                                             
                                             </div>

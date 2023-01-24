@@ -64,6 +64,7 @@ class MCSCRController extends Controller
                 'status'=>0,
                 'open_at'=>Date::now(),
                 'open_at_man'=>$data['open_at_man'],
+                'output_forecast'=>$data['output_forecast'],
                 
             ]);
     

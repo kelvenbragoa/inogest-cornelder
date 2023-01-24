@@ -100,6 +100,19 @@
                             </div>
                             
                         </div>
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="inputEmail4">Motivo da Espera(Paralização)</label>
+                                <select type="text" class="form-control" name="waiting_id"> 
+                                    <option value="">Nenhuma</option>
+                                    @foreach (\App\Models\Waiting::all() as $item)
+                                    <option value="{{$item->id}}" @if ($mcscr->waiting_id == $item->id) selected @endif>{{$item->name}}</option>
+                                    @endforeach
+                                   
+                                </select>
+                            </div>
+                            
+                        </div>
 
 
                         <div class="row">
