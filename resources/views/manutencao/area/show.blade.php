@@ -17,7 +17,7 @@
                         <p>Número de Equipamentos : {{count($area->equipment->where('mobilized',1))}}</p>
                         <p style="color:green">Equipamentos Disponíveis : {{count($area->equipment->where('status',1)->where('mobilized',1))}}</p>
                         <p style="color:red">Equipamentos Indisponíveis: {{count($area->equipment->where('status',0)->where('mobilized',1))}}</p>
-                        <p style="color:red">Equipamentos Imobilizados: {{count($type->equipment->where('mobilized',1))}}</p>
+                        <p style="color:red">Equipamentos Imobilizados: {{count($area->equipment->where('mobilized',1))}}</p>
                     </div>
                     <div class="col">
                         <p>Percentagem disponibilidade:</p>
