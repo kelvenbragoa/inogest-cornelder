@@ -12,6 +12,7 @@
             <div class="card" id="invoice">
                 <div class="card-header">
                     <h5 class="card-title">Equipamento</h5>
+                    <a href="{{URL::to('/equipment/'.$equipment->id.'/edit')}}">Editar<i class="align-middle" data-feather="edit-2"></i></a>
                 </div>
                 <div class="card-body">
                     <p>ID : {{$equipment->id}}</p>
@@ -36,7 +37,10 @@
                     <p>Tempo de paralização este ano : {{$time_y}}Horas</p>
                     <p>Tempo de paralização este mês : {{$time_m}}Horas</p>
                     <p>Tempo de paralização hoje : {{$time_t}}Horas</p>
-                    <p>Nº de MCSCR : {{count($equipment->mcscr)}}</p>
+                    <p>Nº de MCSCR Total: {{count($equipment->mcscr)}}</p>
+                    <p>Nº de MCSCR Terminado: {{count($equipment->mcscr->where('status',1))}}</p>
+                    <p>Nº de MCSCR Em execução: {{count($equipment->mcscr->where('status',0))}}</p>
+                    <p>Nº de MCSCR Aguardando aprovação: {{count($equipment->mcscr->where('status',2))}}</p>
 
                     <hr>
 
@@ -382,7 +386,7 @@
                                     @foreach ($equipment->mcscr as $item)
                                         <tr>
                                             {{-- <td>{{$item->id}}</td> --}}
-                                            <td>@if ($item->status == 0) <span class="badge bg-danger">Em execução</span> @else <span class="badge bg-success">Terminado</span> @endif</td>
+                                            <td>@if ($item->status == 0) <span class="badge bg-danger">Em execução</span> @endif @if ($item->status == 1) <span class="badge bg-success">Terminado</span> @endif @if ($item->status == 2) <span class="badge bg-warning">Aguarda Aprovação</span> @endif</td>
         
                                             <td>{{date('d-m-Y H:m:s',strtotime($item->open_at_man)) }}</td>
                                             <td>{{date('d-M-Y H:m:s',strtotime($item->close_at_man))}}</td>

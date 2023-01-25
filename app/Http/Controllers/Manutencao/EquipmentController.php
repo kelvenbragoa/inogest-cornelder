@@ -76,6 +76,8 @@ class EquipmentController extends Controller
         $mcscr_y = Mcscr::where('equipment_id',$id)->where('status',1)->whereYear('open_at_man',date('Y'))->get();
         $mcscr_t = Mcscr::where('equipment_id',$id)->where('status',1)->whereMonth('open_at_man',date('m'))->whereYear('open_at_man',date('Y'))->whereDay('open_at_man',date('d'))->get();
 
+        
+
         $time_total = 0;
         $time_m = 0;
         $time_y=0;
@@ -188,7 +190,6 @@ class EquipmentController extends Controller
             
            
 
-       
          
            
            

@@ -9,6 +9,7 @@
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">MCSCR</h5>
+                    <a href="{{URL::to('/mcscr/'.$mcscr->id.'/edit')}}">Editar<i class="align-middle" data-feather="edit-2"></i></a>
                 </div>
                 <div class="card-body">
                     <p><strong>Motivo</strong>  : {{$mcscr->motivo}}</p>
