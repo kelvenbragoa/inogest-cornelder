@@ -17,6 +17,7 @@
                     <p><strong>Consequencia</strong> : {{$mcscr->consequencia}}</p>
                     <p><strong>Recomendação</strong> : {{$mcscr->recomendacao}}</p>
                     <p><strong>Motivo Longa Paralização</strong> : {{$mcscr->obs}}</p>
+                    <p>Previsão de saída: @if ($mcscr->output_forecast != '') {{date('d-m-Y H:i:s',strtotime($mcscr->output_forecast))}} @endif </p>
                     <p><strong>Estado</strong> : @if ($mcscr->status == 0) <span class="badge bg-danger">Em execução</span> @endif @if ($mcscr->status == 1) <span class="badge bg-success">Terminado</span> @endif @if ($mcscr->status == 2) <span class="badge bg-warning">Aguarda Aprovação</span> @endif</p>
                     
                     <hr>
@@ -37,8 +38,8 @@
                     <hr>
 
                     <h5 class="card-title">Informações da Avaria(Automatica)</h5>
-                    <p><strong>Aberto em</strong>  : {{date('d-m-Y H:i:s',strtotime($mcscr->open_at))}}</p>
-                    <p><strong>Fechado em</strong> : {{date('d-m-Y H:i:s',strtotime($mcscr->close_at))}}</p>
+                    <p><strong>Aberto em</strong>  : @if ($mcscr->open_at !='' ) {{date('d-m-Y H:i:s',strtotime($mcscr->open_at))}} @endif </p>
+                    <p><strong>Fechado em</strong> :  @if ($mcscr->close_at !='' ) {{date('d-m-Y H:i:s',strtotime($mcscr->close_at))}} @endif</p>
 
                     @if ($mcscr->close_at == null)
                                     <?php
@@ -67,8 +68,8 @@
                                     <hr>
 
                                     <h5 class="card-title">Informações da Avaria(Manual)</h5>
-                                    <p><strong>Aberto em</strong>  : {{date('d-m-Y H:i:s',strtotime($mcscr->open_at_man))}}</p>
-                                    <p><strong>Fechado em</strong> : {{date('d-m-Y H:i:s',strtotime($mcscr->close_at_man))}}</p>
+                                    <p><strong>Aberto em</strong>  : @if ($mcscr->open_at_man !='' ) {{date('d-m-Y H:i:s',strtotime($mcscr->open_at_man))}} @endif </p>
+                                    <p><strong>Fechado em</strong> : @if ($mcscr->close_at_man !='' ) {{date('d-m-Y H:i:s',strtotime($mcscr->close_at_man))}} @endif</p>
                 
                                     @if ($mcscr->close_at_man == null)
                                                     <?php

@@ -116,7 +116,7 @@
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="inputEmail4">Fechado as:</label>
-                                <input type="datetime-local" class="form-control" name="close_at_man" @if ($mcscr->close_at_man != '') value="{{  date('Y-m-d\TH:i', strtotime($mcscr->close_at_man)) }}" @endif id="close_at_man" placeholder="Fechado" required> 
+                                <input type="datetime-local" class="form-control" name="close_at_man" @if ($mcscr->close_at_man != '') value="{{  date('Y-m-d\TH:i', strtotime($mcscr->close_at_man)) }}" @endif id="close_at_man" placeholder="Fechado"> 
                             </div>
                             
                         </div>

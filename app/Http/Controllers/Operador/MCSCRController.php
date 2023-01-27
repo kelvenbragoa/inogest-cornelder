@@ -51,10 +51,12 @@ class MCSCRController extends Controller
 
         $user = User::all();
 
-        $test=  Mcscr::where('equipment_id',$data['equipment_id'])->where('status',0)->first();
+        $test1=  Mcscr::where('equipment_id',$data['equipment_id'])->where('status',0)->first();
+        $test2=  Mcscr::where('equipment_id',$data['equipment_id'])->where('status',2)->first();
+
         $equipment = Equipment::find($data['equipment_id']);
         
-        if($test == null){
+        if($test1 == null && $test2 == null){
             Mcscr::create([
                 'motivo'=>$data['motivo'],
                 'user_id'=>$data['user_id'],
@@ -85,7 +87,7 @@ class MCSCRController extends Controller
     
             return redirect()->route('mcscr-operador.index')->with('messageSuccess', 'MCSCR criado com sucesso');
         }else{
-            return redirect()->route('mcscr-operador.index')->with('messageError', 'Existe um MCSCR em execução criado para este equipamento. Fecha o MCSCR para abrir um novo.');
+            return redirect()->route('mcscr-operador.index')->with('messageError', 'Existe um MCSCR em execução ou esperando aprovoção criado para este equipamento. Fecha o MCSCR para abrir um novo.');
         }
 
 

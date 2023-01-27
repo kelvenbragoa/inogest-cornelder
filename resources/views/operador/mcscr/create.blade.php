@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="inputEmail4">Aberto as:</label>
-                                <input type="text" class="form-control" name="model" id="model" placeholder="Modelo"  value="{{date('d-m-Y h:m:s') }}" readonly> 
+                                <input type="text" class="form-control" name="model" id="model" placeholder="Modelo"  value="{{date('d-m-Y h:i:s') }}" readonly> 
                             </div>
                             
                         </div>
