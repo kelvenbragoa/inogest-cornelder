@@ -37,8 +37,9 @@
                                 <th style="width:10%">Fechado</th>
                                 <th style="width:10%">Tempo paralisado</th>
                                 <th style="width:15%">Motivo</th>
-                                <th style="width:5%">Custo Mão de Obra</th>
-                                <th style="width:5%">Custo Material</th>
+                                <th style="width:5%">Previsão</th>
+                                {{-- <th style="width:5%">Custo Mão de Obra</th>
+                                <th style="width:5%">Custo Material</th> --}}
                                 <th>{{__('text.action')}}</th>
                             </tr>
                         </thead>
@@ -109,8 +110,9 @@
                                    
                                     
                                     <td>{{$item->motivo}}</td>
-                                    <td>{{$item->custo_mao_obra}} MT</td>
-                                    <td>{{$item->custo_material}} MT</td>
+                                    <td>{{$item->output_forecast}}</td>
+                                    {{-- <td>{{$item->custo_mao_obra}} MT</td>
+                                    <td>{{$item->custo_material}} MT</td> --}}
                                     <td class="table-action">
                                         @if ($item->status == 0 || $item->status == 2 )
                                             <a href="{{URL::to('/mcscr/'.$item->id.'/edit')}}"><i class="align-middle" data-feather="edit-2"></i></a>
